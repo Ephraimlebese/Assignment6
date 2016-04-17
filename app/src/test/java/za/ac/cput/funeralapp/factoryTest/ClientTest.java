@@ -1,5 +1,6 @@
 package za.ac.cput.funeralapp.factoryTest;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import za.ac.cput.funeralapp.main.domain.Clients;
@@ -15,6 +16,16 @@ public class ClientTest
     public void testCreate() throws Exception
     {
         Clients clients = ClientsFactory.getClient("8805165415086","Ricky","Ross");
+        Assert.assertEquals(clients.getFirstName(),"Ricky");
+    }
+
+    @Test
+    public void testUpdate() throws Exception
+    {
+        Clients clients = ClientsFactory.getClient("8805165415086","Ricky","Ross");
+        Clients updatedClients = new Clients.Builder().copy(clients).firstName("Richy").build();
+
+        Assert.assertEquals(updatedClients.getFirstName(),"Richy");
 
     }
 }
