@@ -24,6 +24,6 @@ public class EmployeesTest
     {
         Employees employees = EmployeesFactory.getEmployees("9905255415086","Mpho","Dube");
         Employees updatedEmployees = new Employees.Builder().copy(employees).lastName("Mahlala").build();
-
+        Assert.assertEquals(updatedEmployees.getLastName(),"Mahlala");
     }
 }
